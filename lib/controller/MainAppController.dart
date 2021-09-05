@@ -20,7 +20,7 @@ class MainAppController extends StatelessWidget {
           length: 3,
           child: Scaffold(
               appBar: AppBar(
-                title: Text("Flutter Chat"),
+                title: Text("Yazid Chat"),
                 bottom: TabBar(tabs: [
                   Tab(
                     icon: Icon(Icons.message),

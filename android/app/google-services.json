@@ -1,15 +1,45 @@
 {
   "project_info": {
     "project_number": "490607316377",
+    "firebase_url": "https://flutterchat-4c87b-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "flutterchat-4c87b",
     "storage_bucket": "flutterchat-4c87b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:490607316377:android:3245e60aa5c935a7d01708",
+        "mobilesdk_app_id": "1:490607316377:android:af3763817247d4c7d01708",
         "android_client_info": {
-          "package_name": "com.example.flutter_application_1"
+          "package_name": "com.yazid.flutterapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490607316377-s76ve7i7t0ftrhsb1tve9me58qgo40c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcCP1r2TCa52EXJDxj4hxLvCjlqooVZ4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490607316377-s76ve7i7t0ftrhsb1tve9me58qgo40c8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490607316377:android:29efa6f02f753afad01708",
+        "android_client_info": {
+          "package_name": "com.yazid.flutterapplication"
         }
       },
       "oauth_client": [

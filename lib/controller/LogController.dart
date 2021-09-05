@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/FirebaseHelper.dart';
@@ -11,10 +10,10 @@ class LogController extends StatefulWidget {
 
 class LogControllerState extends State<LogController> {
   bool _log = true;
-  String _adresseMail = "";
-  String _password = "";
-  String _prenom = "";
-  String _nom = "";
+  String? _adresseMail;
+  String? _password;
+  String? _prenom;
+  String? _nom;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +49,7 @@ class LogControllerState extends State<LogController> {
             ),
             ElevatedButton(
               onPressed: _handleLog,
-              child: Text("Connexion"),
+              child: Text("Go"),
             )
           ],
         ),
@@ -63,7 +62,9 @@ class LogControllerState extends State<LogController> {
       if (_password != "") {
         if (_log) {
           //Connexion
-          FirebaseHelper().handleSigneIn(_adresseMail, _password).then((user) {
+          FirebaseHelper()
+              .handleSigneIn(_adresseMail!, _password!)
+              .then((user) {
             print(user.uid);
           }).catchError((error) {
             alerte(error.toString());
@@ -74,7 +75,7 @@ class LogControllerState extends State<LogController> {
             if (_nom != "") {
               // methode pour créer utilisateur
               FirebaseHelper()
-                  .create(_adresseMail, _password, _prenom, _nom)
+                  .create(_adresseMail!, _password!, _prenom!, _nom!)
                   .then((user) {
                 print(user.uid);
               }).catchError((error) {
