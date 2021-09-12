@@ -49,8 +49,8 @@ class FirebaseHelper {
     return user;
   }
 
-  static final entryStorage = FirebaseStorage.instance.ref();
-  final entryUser = entryStorage.child("users");
+  static final entryStorage = FirebaseStorage.instance.ref('users/imageUrl');
+  final entryUser = entryStorage;
 
   Future<String> savePic(File file, Reference reference) async {
     UploadTask task = reference.putFile(file);
