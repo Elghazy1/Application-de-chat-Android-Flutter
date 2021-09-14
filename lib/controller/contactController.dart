@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/ChatController.dart';
 import 'package:flutter_application_1/model/FirebaseHelper.dart';
 import 'package:flutter_application_1/model/MyUser.dart';
 import 'package:flutter_application_1/widgets/customimage.dart';
@@ -25,10 +26,14 @@ class ContactControllerState extends State<ContactController> {
           } else {
             return ListTile(
               leading: CustomImage(newUser.imageUrl, newUser.initiales, 20),
-              title: Text("${newUser.prenom} ${newUser.nom}"),
+              title: Text(newUser.fullName()),
               trailing: IconButton(
                 icon: Icon(Icons.message),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ChatController(newUser);
+                  }));
+                },
               ),
             );
           }

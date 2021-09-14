@@ -24,4 +24,8 @@ class MyUser {
   Map toMap() {
     return {"prenom": prenom, "nom": nom, "imageUrl": imageUrl, "uid": uid};
   }
+
+  String fullName() {
+    return "$prenom $nom";
+  }
 }

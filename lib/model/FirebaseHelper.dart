@@ -49,6 +49,33 @@ class FirebaseHelper {
     return user;
   }
 
+  sendMessage(MyUser me, MyUser partenaire, String texte) {
+    // 1) id1 + id2
+    String ref = getMessageRef(me.uid!, partenaire.uid!);
+    String date = DateTime.now().millisecondsSinceEpoch.toString();
+    Map map = {
+      "from": me.uid,
+      "to": partenaire.uid,
+      "text": texte,
+      "dateString": date
+    };
+    basemessage.child(ref).child(date).set(map);
+
+    //Notification de dernier message de conversation.
+  }
+
+  getMessageRef(String from, String to) {
+    List<String> list = [from, to];
+    list.sort((a, b) => a.compareTo(b));
+    String ref = "";
+    for (var x in list) {
+      ref += x + "+";
+    }
+    return ref;
+  }
+
+  // Storage
+
   static final entryStorage = FirebaseStorage.instance.ref('users/imageUrl');
   final entryUser = entryStorage;
 

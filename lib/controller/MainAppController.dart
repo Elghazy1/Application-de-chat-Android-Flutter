@@ -20,7 +20,7 @@ class MainAppController extends StatelessWidget {
           length: 3,
           child: Scaffold(
               appBar: AppBar(
-                title: Text("Yazid Chat"),
+                title: Text("MaygWawal"),
                 bottom: TabBar(tabs: [
                   Tab(
                     icon: Icon(Icons.message),
