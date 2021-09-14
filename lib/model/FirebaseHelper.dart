@@ -62,6 +62,23 @@ class FirebaseHelper {
     basemessage.child(ref).child(date).set(map);
 
     //Notification de dernier message de conversation.
+    baseconversation
+        .child(me.uid!)
+        .child(partenaire.uid!)
+        .set(setConversation(partenaire, me.uid!, texte, date));
+    baseconversation
+        .child(partenaire.uid!)
+        .child(me.uid!)
+        .set(setConversation(me, me.uid!, texte, date));
+  }
+
+  setConversation(MyUser user, String sender, String last, String dateString) {
+    // User,Last message, Date
+    Map map = user.toMap();
+    map["monId"] = sender;
+    map["lastMessage"] = last;
+    map["dateString"] = dateString;
+    return map;
   }
 
   getMessageRef(String from, String to) {
