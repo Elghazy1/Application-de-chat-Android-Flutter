@@ -49,7 +49,7 @@ class FirebaseHelper {
     return user;
   }
 
-  sendMessage(MyUser me, MyUser partenaire, String texte) {
+  sendMessage(MyUser me, MyUser partenaire, String texte, String imageUrl) {
     // 1) id1 + id2
     String ref = getMessageRef(me.uid!, partenaire.uid!);
     String date = DateTime.now().millisecondsSinceEpoch.toString();
@@ -57,7 +57,8 @@ class FirebaseHelper {
       "from": me.uid,
       "to": partenaire.uid,
       "text": texte,
-      "dateString": date
+      "dateString": date,
+      "imageUrl": imageUrl
     };
     basemessage.child(ref).child(date).set(map);
 
@@ -93,8 +94,9 @@ class FirebaseHelper {
 
   // Storage
 
-  static final entryStorage = FirebaseStorage.instance.ref('users/imageUrl');
-  final entryUser = entryStorage;
+  static final entryStorage = FirebaseStorage.instance.ref();
+  final entryUser = entryStorage.child("users");
+  final entryMessage = entryStorage.child("messages");
 
   Future<String> savePic(File file, Reference reference) async {
     UploadTask task = reference.putFile(file);

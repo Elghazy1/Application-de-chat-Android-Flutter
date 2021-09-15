@@ -4,6 +4,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/ChatController.dart';
 import 'package:flutter_application_1/model/Conversation.dart';
+import 'package:flutter_application_1/model/DateHelper.dart';
 import 'package:flutter_application_1/model/FirebaseHelper.dart';
 import 'package:flutter_application_1/widgets/customimage.dart';
 
@@ -28,7 +29,7 @@ class MessagesControllerState extends State<MessagesController> {
                 conversation.user!.imageUrl, conversation.user!.initiales, 20),
             title: Text(conversation.user!.fullName()),
             subtitle: Text(sub),
-            trailing: Text(conversation.date!),
+            trailing: Text(DateHelper().convert(conversation.date!)),
             onTap: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (BuildContext ctx) {

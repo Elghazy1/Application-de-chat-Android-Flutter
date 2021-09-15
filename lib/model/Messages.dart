@@ -5,6 +5,7 @@ class Message {
   String? to;
   String? text;
   String? dateString;
+  String? imageUrl;
 
   Message(DataSnapshot snapshot) {
     Map value = snapshot.value;
@@ -12,5 +13,6 @@ class Message {
     to = value["to"];
     text = value["text"];
     dateString = value["dateString"];
+    imageUrl = value["imageUrl"];
   }
 }

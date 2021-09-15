@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/FirebaseHelper.dart';
 import 'package:flutter_application_1/model/Messages.dart';
 import 'package:flutter_application_1/model/MyUser.dart';
+import 'package:flutter_application_1/widgets/ChatBubble.dart';
 import 'package:flutter_application_1/widgets/ZoneDeText.dart';
 import 'package:flutter_application_1/widgets/customimage.dart';
 
@@ -60,15 +61,13 @@ class ChatControllerState extends State<ChatController> {
                         itemBuilder: (BuildContext ctx, DataSnapshot snap,
                             Animation<double> animation, int index) {
                           Message msg = Message(snap);
-                          return ListTile(
-                            title: Text(msg.text!),
-                          );
+                          return ChatBubble(msg, widget.partenaire, animation);
                         })
                     : Center(
                         child: Text("Chargement.."),
                       )),
             Divider(height: 2),
-            ZoneDeTexte(widget.partenaire, this.me!)
+            ZoneDeTexte(widget.partenaire, me)
           ],
         ),
       ),
